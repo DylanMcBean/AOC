@@ -9,7 +9,7 @@ int main() {
     try {
         LOG(Logger::LogLevel::Info, "Starting the program");
 
-        AOCManager::getInstance().run();
+        AOCManager::getInstance().run(2024);
 
         InstrumentorPrinting::PrintSessionData(
             Instrumentor::Get().GetFunctionTimes(),

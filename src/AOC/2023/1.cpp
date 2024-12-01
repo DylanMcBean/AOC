@@ -1,6 +1,8 @@
 #include "AOC/Manager.hpp"
 
-const std::string test_input_1 =
+namespace {
+
+std::string test_input_1 =
     "1abc2\n"
     "pqr3stu8vwx\n"
     "a1b2c3d4e5f\n"
@@ -27,7 +29,7 @@ REGISTER_SOLUTION(2023, 1, 1, {
     return std::to_string(sum);
 });
 
-const std::string test_input_2 = 
+std::string test_input_2 = 
     "two1nine\n"
     "eightwothree\n"
     "abcone2threexyz\n"
@@ -40,7 +42,7 @@ REGISTER_TEST(2023, 1, 2, test_input_2, "281");
 
 int getDigit(const std::string_view& sv, int i) {
     PROFILE_FUNCTION();
-    std::vector<std::string> digits = {
+    static const std::vector<std::string> digits = {
         "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"
     };
 
@@ -76,3 +78,5 @@ REGISTER_SOLUTION(2023, 1, 2, {
 
     return std::to_string(sum);
 });
+
+} // namespace
