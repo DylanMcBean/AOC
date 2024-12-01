@@ -8,8 +8,6 @@ namespace FileUtil
 {
     std::ifstream readFile(const std::string &filename)
     {
-        PROFILE_FUNCTION();
-
         std::ifstream inputFile(filename, std::ios::binary);
 
         if (!inputFile.is_open())
@@ -22,7 +20,6 @@ namespace FileUtil
 
     void skipLines(std::istream &stream, int lines)
     {
-        PROFILE_FUNCTION();
         for (int i = 0; i < lines; ++i)
         {
             stream.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -31,8 +28,6 @@ namespace FileUtil
 
     std::vector<std::string> readLines(std::istream &stream, int lines = -1)
     {
-        PROFILE_FUNCTION();
-
         std::vector<std::string> linesRead;
         std::string line;
 

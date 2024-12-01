@@ -18,7 +18,6 @@ void AOCManager::registerTest(int year, int day, int index, const std::string& t
 }
 
 void AOCManager::run(int year, int day, int index) {
-    PROFILE_FUNCTION();
     if (year == -1) {
         runAll();
     } else if (day == -1) {
@@ -29,7 +28,6 @@ void AOCManager::run(int year, int day, int index) {
 }
 
 void AOCManager::runAll() {
-    PROFILE_FUNCTION();
     LOG(Logger::LogLevel::Info, "Running all challenges and tests");
 
     for (const auto& [key, _] : solutions) {
@@ -39,7 +37,6 @@ void AOCManager::runAll() {
 }
 
 void AOCManager::runYear(int year, int index) {
-    PROFILE_FUNCTION();
     LOG(Logger::LogLevel::Info, "Running all challenges and tests for Year: {}", year);
     for (const auto& [key, _] : solutions) {
         if (key.first == year) {
@@ -49,8 +46,6 @@ void AOCManager::runYear(int year, int index) {
 }
 
 void AOCManager::runDay(int year, int day, int index) {
-    PROFILE_FUNCTION();
-
     auto solIt = solutions.find({year, day});
     auto testIt = tests.find({year, day});
 
@@ -94,7 +89,6 @@ void AOCManager::runDay(int year, int day, int index) {
 
 void AOCManager::executeTest(int year, int day, int index, const std::function<std::string(std::istream&)>& solution,
                              const std::string& expected, const std::string& testInput) {
-    PROFILE_FUNCTION();
     std::istringstream inputStream(testInput);
     std::string result = solution(inputStream);
     std::string formattedDate = formatDateString(year, day, index);
