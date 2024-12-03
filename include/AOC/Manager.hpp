@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Instrumentation/Instrumentor.hpp"
+#include "Profiler.hpp"
 #include "Utils/Logger.hpp"
 #include "Utils/File.hpp"
 
